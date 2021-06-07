@@ -11,7 +11,7 @@ repository = "https://github.com/ritchie46/polars"
 
 [features]
 simd = ["arrow/simd"]
-avx512 = ["arrow/avx512"]
+avx512 = []
 docs = []
 temporal = ["chrono", "regex"]
 random = ["rand", "rand_distr"]
@@ -60,10 +60,12 @@ dtype-u16 = []
 dtype-u64 = []
 
 [dependencies]
-arrow = {git = "https://github.com/apache/arrow-rs", rev = "f26ffb3091ae355d246edc4a6fcc2c8e5b9bc570", default-features=false}
+arrow = { package = "arrow2", git = "https://github.com/jorgecarleitao/arrow2", rev = "f37f01f9c87595e748d721ee7e37eacbac443249" }
+#arrow = {git = "https://github.com/apache/arrow-rs", rev = "f26ffb3091ae355d246edc4a6fcc2c8e5b9bc570", default-features=false}
 #arrow = {version = "4.2", default-features = false }
-parquet = {optional = true, git = "https://github.com/apache/arrow-rs", rev = "f26ffb3091ae355d246edc4a6fcc2c8e5b9bc570"}
+#parquet = {optional = true, git = "https://github.com/apache/arrow-rs", rev = "f26ffb3091ae355d246edc4a6fcc2c8e5b9bc570"}
 #parquet = {version = "4.2", default-features = false, optional = true }
+parquet = { optional=true, package = "parquet2", git = "https://github.com/jorgecarleitao/parquet2", rev = "f86ba6f65fede75dd7b9f7dd6b0fe3e271d2aa58" }
 polars-arrow = {version = "0.14.1", path = "../polars-arrow"}
 thiserror = "1.0"
 num = "^0.4"
